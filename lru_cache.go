@@ -87,7 +87,7 @@ func (c *LRUCache) evict() {
 	c.size--
 }
 
-func (c *LRUCache) Put(key int, value interface{}) {
+func (c *LRUCache) Put(key interface{}, value interface{}) {
 	item, ok := c.store[key]
 
 	if !ok {
