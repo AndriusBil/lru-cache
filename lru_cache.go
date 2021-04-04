@@ -60,7 +60,7 @@ func (c *LRUCache) Get(key interface{}) interface{} {
 	item, ok := c.store[key]
 
 	if !ok {
-		return -1
+		return nil
 	}
 
 	c.promote(item)
