@@ -15,6 +15,8 @@ type LRUCache struct {
 	tail  *LinkedNode
 }
 
+// New creates a new LRUCache.
+// The capacity variable determines how many items can be stored.
 func New(capacity int) LRUCache {
 	return LRUCache{
 		cap:   capacity,
@@ -56,6 +58,8 @@ func (c *LRUCache) promote(item *LinkedNode) {
 	c.push(item)
 }
 
+// Get returns stored value by provided variable key.
+// Requested value is pushed to the head of the cache.
 func (c *LRUCache) Get(key interface{}) interface{} {
 	item, ok := c.store[key]
 
@@ -87,6 +91,9 @@ func (c *LRUCache) evict() {
 	c.size--
 }
 
+// Put puts variable value at variable key.
+// Variable value is stored at the head of the cache.
+// If the cache is full, variable at the tail of the cache is removed.
 func (c *LRUCache) Put(key interface{}, value interface{}) {
 	item, ok := c.store[key]
 
